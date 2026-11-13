@@ -25,3 +25,16 @@ Follows publish-subscribe model where producers send messages to topics and cons
 
 - **Retention** : Unlike traditional message queues that delete a message immediately after it is read, Kafka retains records for a configured time (e.g., 7 days) or size limit. This allows consumers to replay past events.
 
+<br>
+<br>
+
+# KRaft Mode
+
+Completely eliminating the need for Apache ZooKeeper to manage cluster metadata. Instead of relying on an external system, Kafka brokers manage their own metadata and cluster consensus internally using a Raft-based protocol.
+
+## Components
+
+- *Controller Quorum (Control Plane)* 
+- *Active Controller (Leader)*
+- *Metadata Log Partition (@metadata)*
+- *Follower Controllers and Standard Brokers*

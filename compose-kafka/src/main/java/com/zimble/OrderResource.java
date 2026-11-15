@@ -5,17 +5,22 @@
 package com.zimble;
 
 import com.zimble.kafka.OrderProducer;
+import io.smallrye.mutiny.Uni;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
-import io.smallrye.mutiny.Uni;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 import org.jboss.resteasy.reactive.ResponseStatus;
 
 @Path("/orders")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class OrderResource {
 
     private final OrderProducer producer;
 
-    // Constructor injection
     public OrderResource(OrderProducer producer) {
         this.producer = producer;
     }
